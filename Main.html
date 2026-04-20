@@ -12,21 +12,22 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* ── Fake 404 Host Page ── */
-        body { background: #fff; color: #000; font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+        /* ── Fake Block Page (ContentKeeper) ── */
+        body { background: #fff; color: #000; font-family: calibri, arial;
                display: flex; justify-content: center; align-items: center; min-height: 100vh;
                flex-direction: column; }
-
-        #fake404 { text-align: center; padding: 40px; max-width: 600px; }
-        #fake404 .icon404 { margin-bottom: 24px; }
-        #fake404 .icon404 svg { width: 48px; height: 48px; }
-        #fake404 h1 { font-size: 20px; font-weight: 400; color: #202124; margin-bottom: 8px; }
-        #fake404 p { font-size: 14px; color: #5f6368; line-height: 1.6; margin-bottom: 16px; }
-        #fake404 .err-code { font-size: 12px; color: #9aa0a6; margin-top: 12px; }
-        #fake404 .err-details { font-size: 13px; color: #5f6368; margin-bottom: 8px; }
-        #fake404 button.reload-btn { background: #1a73e8; color: #fff; border: none; border-radius: 4px;
-            padding: 10px 24px; font-size: 14px; cursor: pointer; margin-top: 16px; }
-        #fake404 button.reload-btn:hover { background: #1765cc; }
+        #fake404 { width: 100%; }
+        #fake404 #header { background: url("data:image/png;base64,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") center center no-repeat; height: 220px; }
+        #fake404 #block_info { font-weight: bold; font-size: 24px; text-align: center; line-height: 32px; box-shadow: rgba(0,0,0,0.55) 0px 0px 4px; }
+        #fake404 .block { background-color: rgb(0,89,153); color: rgb(255,255,255); }
+        #fake404 #block_message { margin: 20px; }
+        #fake404 .url_info { font-weight: bold; }
+        #fake404 .mainDiv { width: 600px; margin: 0px auto; padding: 0px; background-color: #fff; }
+        #fake404 #footer { font-size: 14px; }
+        #fake404 #policy, #fake404 #review { margin: 20px; }
+        #fake404 .policy, #fake404 .review { text-align: center; font-weight: bold; }
+        #fake404 #contact { font-weight: bold; text-align: center; font-size: 16px; line-height: 32px; box-shadow: rgba(0,0,0,0.55) 0px 0px 4px; }
+        #fake404 input[type=Button] { margin-left: 20px; cursor: pointer; }
 
         canvas#bg { display: none; }
 
@@ -231,8 +232,21 @@
         #aiMessages { overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; min-height: 0; }
         .ai-msg { padding: 10px 14px; border-radius: 10px; max-width: 85%; word-wrap: break-word; font-size: 13px; line-height: 1.55; }
         .ai-msg.user { background: var(--accent); color: #000; align-self: flex-end; border-bottom-right-radius: 2px; font-weight: 500; }
-        .ai-msg.assistant { background: #1a1a1a; color: #ddd; align-self: flex-start; border-bottom-left-radius: 2px; white-space: pre-wrap; }
-        .ai-msg.assistant code { background: rgba(255,255,255,0.08); padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+        .ai-msg.assistant { background: #1a1a1a; color: #ddd; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .ai-msg.assistant p { margin: 2px 0; }
+        .ai-msg.assistant h2,.ai-msg.assistant h3,.ai-msg.assistant h4 { margin: 8px 0 4px; color: #eee; }
+        .ai-msg.assistant ul,.ai-msg.assistant ol { margin: 4px 0; padding-left: 20px; }
+        .ai-msg.assistant li { margin: 2px 0; }
+        .ai-msg.assistant pre { background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 6px; padding: 10px 12px; margin: 6px 0; overflow-x: auto; }
+        .ai-msg.assistant pre code { background: none; padding: 0; color: #00ff88; font-family: 'Cascadia Code','Fira Code',monospace; font-size: 12px; }
+        .ai-msg.assistant code { background: rgba(255,255,255,0.08); padding: 1px 5px; border-radius: 4px; font-size: 12px; font-family: monospace; color: #00ff88; }
+        .ai-msg.assistant mark { background: rgba(255,235,59,0.2); color: #ffeb3b; padding: 0 2px; border-radius: 2px; }
+        .ai-msg.assistant a { color: var(--accent); }
+        .ai-msg.assistant hr { border: none; border-top: 1px solid #333; margin: 8px 0; }
+        .ai-msg.assistant strong { color: #fff; }
+        .ai-msg.assistant table { border-collapse: collapse; margin: 6px 0; font-size: 12px; }
+        .ai-msg.assistant th,.ai-msg.assistant td { border: 1px solid #333; padding: 4px 10px; }
+        .ai-msg.assistant th { background: #222; color: #eee; }
         .ai-msg.typing { color: #666; font-style: italic; }
         #aiInputWrap { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid #2a2a2a; flex-shrink: 0; }
         #aiInput { flex: 1; padding: 10px 14px; border-radius: 8px; border: 1px solid #2a2a2a; background: rgba(20,20,20,0.85); color: #fff; font-size: 14px; outline: none; resize: none; font-family: inherit; }
@@ -254,7 +268,7 @@
         .ai-msg img { max-width: 200px; max-height: 150px; border-radius: 6px; margin-bottom: 4px; display: block; }
 
         #globalPanel { display: flex; flex-direction: column; flex: 1; min-height: 0; overflow: hidden; }
-        #chatMessages { overflow-y: scroll; padding: 12px 20px; display: flex; flex-direction: column; gap: 6px; -webkit-overflow-scrolling: touch; flex: 1; min-height: 200px; max-height: calc(100vh - 260px); }
+        #chatMessages { overflow-y: scroll; padding: 12px 20px; display: flex; flex-direction: column; gap: 6px; flex: 1; min-height: 200px; max-height: calc(100vh - 260px); overflow-anchor: none; }
         .chat-msg { padding: 8px 12px; border-radius: 10px; max-width: 80%; word-wrap: break-word; font-size: 13px; line-height: 1.4; animation: chatFadeIn 0.2s ease; }
         .chat-msg.self { background: var(--accent); color: #000; align-self: flex-end; border-bottom-right-radius: 2px; font-weight: 500; }
         .chat-msg.other { background: #1e1e1e; color: #ddd; align-self: flex-start; border-bottom-left-radius: 2px; }
@@ -325,7 +339,7 @@
         #chatSidebar .user-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
         #chatSidebar .user-item .user-dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf50; flex-shrink: 0; }
         .dm-panel { display: none; flex-direction: column; flex: 1; overflow: hidden; min-height: 0; }
-        .dm-panel .dm-messages { overflow-y: scroll; padding: 12px 20px; display: flex; flex-direction: column; gap: 6px; -webkit-overflow-scrolling: touch; flex: 1; min-height: 200px; max-height: calc(100vh - 260px); }
+        .dm-panel .dm-messages { overflow-y: scroll; padding: 12px 20px; display: flex; flex-direction: column; gap: 6px; flex: 1; min-height: 200px; max-height: calc(100vh - 260px); overflow-anchor: none; }
         .dm-panel .dm-input-bar { display: flex; gap: 8px; padding: 10px 16px; border-top: 1px solid #2a2a2a; flex-shrink: 0; }
         .dm-panel .dm-input-bar input { flex: 1; background: #111; border: 1px solid #333; border-radius: 8px; padding: 10px 14px; color: #fff; font-size: 13px; outline: none; }
         .dm-panel .dm-input-bar input:focus { border-color: var(--accent); }
@@ -410,7 +424,7 @@
         /* ══════════════════════════════════════════════════════════════════
            ██  DESKTOP ADVANCED MODE  ██
            ══════════════════════════════════════════════════════════════════ */
-        #hub.adv-desktop-mode { padding: 0; height: 100vh; overflow: auto; position: relative; }
+        #hub.adv-desktop-mode { padding: 0; height: 100vh; overflow: hidden; position: relative; }
 
         /* Top bar */
         #hub.adv-desktop-mode #hubHeader { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 36px; background: rgba(8,8,16,0.7); backdrop-filter: blur(40px) saturate(200%); -webkit-backdrop-filter: blur(40px) saturate(200%); border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; padding: 0 20px; margin: 0; justify-content: center; }
@@ -607,6 +621,49 @@
         .wp-card { padding:10px 8px; background:rgba(20,20,20,0.8); border:1px solid #222; border-radius:8px; cursor:pointer; text-align:center; color:#aaa; font-size:12px; font-weight:600; transition:0.15s; user-select:none; }
         .wp-card:hover { border-color:var(--accent); color:#fff; background:rgba(30,30,30,0.9); }
         .wp-card.wp-active { border-color:var(--accent); color:var(--accent); background:rgba(0,255,136,0.06); box-shadow:0 0 12px rgba(0,255,136,0.1); }
+        /* Movies View */
+        #moviesView { padding: 20px; overflow-y: auto; height: 100%; box-sizing: border-box; }
+        .mv-section-title { font-size: 11px; font-weight: 700; color: #444; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+        .mv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; margin-bottom: 32px; }
+        .mv-card { background: #0e0e0e; border-radius: 8px; overflow: hidden; cursor: pointer; border: 1px solid #1c1c1c; transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s; }
+        .mv-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 8px 28px rgba(0,0,0,0.6); }
+        .mv-cover { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; background: #111; }
+        .mv-cover-placeholder { width: 100%; aspect-ratio: 2/3; background: #111; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+        .mv-info { padding: 8px 10px 10px; }
+        .mv-title { font-size: 12px; font-weight: 700; color: #ddd; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .mv-meta { font-size: 10px; color: #444; margin-top: 2px; }
+        /* Fullscreen overlay player */
+        #mvOverlay { position: fixed; inset: 0; z-index: 10000; background: #000; display: none; }
+        #mvOverlay iframe { width: 100%; height: 100%; border: none; display: block; }
+        #mvOverlayClose { position: fixed; top: 14px; right: 16px; z-index: 10001; width: 38px; height: 38px; border-radius: 50%; background: rgba(20,20,20,0.85); border: 1px solid #333; color: #fff; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); transition: background 0.15s, border-color 0.15s; }
+        #mvOverlayClose:hover { background: rgba(60,60,60,0.9); border-color: #555; }
+        body.liquid-glass .mv-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); backdrop-filter: blur(10px); }
+        /* Anime View */
+        #animeView { display:flex; flex-direction:column; height:100%; overflow:hidden; }
+        #anGrid { padding:20px; overflow-y:auto; }
+        #anDetail { flex-direction:column; height:100%; overflow:hidden; }
+        .an-header { display:flex; align-items:flex-start; gap:14px; padding:14px 18px; background:#0a0a0a; border-bottom:1px solid #1a1a1a; flex-shrink:0; }
+        .an-back { background:none; border:1px solid #2a2a2a; color:#666; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:12px; white-space:nowrap; align-self:flex-start; }
+        .an-back:hover { border-color:#444; color:#ccc; }
+        .an-poster { width:64px; height:96px; object-fit:cover; border-radius:6px; flex-shrink:0; }
+        .an-meta { flex:1; min-width:0; }
+        .an-title { font-size:18px; font-weight:800; color:#fff; margin-bottom:3px; }
+        .an-info { font-size:11px; color:#444; margin-bottom:10px; }
+        .an-version-tabs { display:flex; gap:6px; flex-wrap:wrap; }
+        .an-vtab { padding:5px 12px; border-radius:6px; border:1px solid #2a2a2a; background:#0e0e0e; color:#555; cursor:pointer; font-size:11px; font-weight:700; transition:0.15s; }
+        .an-vtab:hover { border-color:#444; color:#aaa; }
+        .an-vtab.active { border-color:var(--accent); color:var(--accent); background:rgba(0,255,136,0.06); }
+        .an-arc-row { padding:10px 18px; border-bottom:1px solid #1a1a1a; flex-shrink:0; }
+        #anArcSelect { width:100%; max-width:460px; background:#111; border:1px solid #2a2a2a; color:#bbb; padding:8px 12px; border-radius:7px; font-size:13px; cursor:pointer; }
+        #anArcSelect:focus { border-color:var(--accent); outline:none; }
+        .an-ep-body { flex:1; overflow-y:auto; padding:14px 18px; }
+        .an-ep-status { font-size:11px; color:#333; margin-bottom:10px; }
+        .an-ep-grid { display:flex; flex-wrap:wrap; gap:5px; }
+        .an-ep-btn { min-width:40px; height:34px; padding:0 8px; background:#111; border:1px solid #1c1c1c; border-radius:5px; color:#777; font-size:11px; font-weight:700; cursor:pointer; transition:0.12s; }
+        .an-ep-btn:hover { border-color:var(--accent); color:var(--accent); background:rgba(0,255,136,0.05); }
+        .an-ep-btn.playing { border-color:var(--accent); background:var(--accent); color:#000; }
+        .an-ep-loading { color:#333; font-size:13px; padding:20px 0; }
+        .an-ep-error { color:#c44; font-size:13px; padding:20px 0; }
         #deviceInfoView h2 { color: var(--accent); margin-bottom: 16px; font-size: 22px; }
         .di-section { margin-bottom: 24px; }
         .di-section-title { font-size: 14px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #222; }
@@ -850,14 +907,41 @@
 <canvas id="bg"></canvas>
 
 <div id="fake404">
-    <div class="icon404"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="#9aa0a6" stroke-width="2"/><path d="M15 18h2v2h-2zm14 0h2v2h-2z" fill="#9aa0a6"/><path d="M16 32c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="none" stroke="#9aa0a6" stroke-width="2" stroke-linecap="round"/></svg></div>
-    <h1>This site can’t be reached</h1>
-    <p class="err-details"><strong>drive.google.com</strong> refused to connect.</p>
-    <p>Try:</p>
-    <p style="color:#5f6368;font-size:13px;text-align:left;margin-left:40px;">&#8226; Checking the connection<br>&#8226; Checking the proxy and the firewall</p>
-    <p style="font-size:13px;color:#9aa0a6;">ERR_CONNECTION_REFUSED</p>
-    <button class="reload-btn" onclick="injectCloak()">Reload</button>
-    <p class="err-code"></p>
+    <div class="mainDiv">
+        <div id="header"></div>
+        <div id="block_info" class="block">RESTRICTED</div>
+        <div id="block_message">You have been restricted by the district’s internet filter policy.<br><br>
+            <span class="url_info" style="color:#606062;">URL: &nbsp;&nbsp;</span><span style="font-weight:bold;">script.google.com</span><br>
+            <span class="url_info" style="color:#606062;">Policy: &nbsp;&nbsp;</span><span style="font-weight:bold;">Policy=middlestudent; AD Group=sjstudent</span><br>
+            <span class="url_info" style="color:#606062;">User: &nbsp;&nbsp;</span><span style="font-weight:bold;">kstasen123@rsdmo.org</span><br>
+            <span class="url_info" style="color:#606062;">User’s IP: &nbsp;&nbsp;</span><b>10.84.24.122</b><br>
+            <span class="url_info" style="color:#606062;">Timestamp: &nbsp;&nbsp;</span><b id="_ck_ts"></b>
+        </div>
+        <center><input type="Button" value="Login" onclick="injectCloak()"></center>
+        <hr style="background-color:#606062;height:2px;border:none;">
+        <div id="footer">
+            <div id="policy">
+                <div class="policy" style="color:rgb(0,89,153);">Acceptable Use Policy</div>
+                The site you have requested has been blocked because it does not comply with the filtering requirements as described by the <a href="http://www.fcc.gov/guides/childrens-internet-protection-act" style="color:#000" target="_blank">Children’s Internet Protection Act (CIPA)</a> or Rockwood School District.
+            </div>
+            <div id="review">
+                <div class="review" style="color:rgb(0,89,153);">Request Site Review</div>
+                If you would like this site to be reviewed, please submit a ticket at <a href="http://rsdmo.incidentiq.com/" style="color:#000" target="_blank">rsdmo.incidentiq.com</a> or send an email to <a href="mailto:techhelp@rsdmo.incidentiq.com">techhelp@rsdmo.incidentiq.com</a>. When submitting a ticket, please make sure to include the URL address for the website and why you feel it should be unblocked.
+            </div>
+            <div id="contact" class="block">&nbsp;</div>
+            <br><br><br><br>
+        </div>
+    </div>
+    <script>
+        (function(){
+            var d=new Date();
+            var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+            var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            var ts=days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')+':'+String(d.getSeconds()).padStart(2,'0')+' '+d.getFullYear();
+            var el=document.getElementById('_ck_ts');
+            if(el)el.textContent=ts;
+        })();
+    </script>
 </div>
 
 <div id="idleSafeScreen">
@@ -918,6 +1002,8 @@
                 <option value="music">Music</option>
                 <option value="radio">Radio</option>
                 <option value="soundboard">Soundboard</option>
+                <option value="anime">Anime</option>
+                <option value="movies">Movies</option>
                 <option value="rooms">Watch Party</option>
             </optgroup>
             <optgroup label="&#128295; Tools">
@@ -1467,6 +1553,41 @@ print('Hello from Nexos!')" onkeydown="pyTabKey(event)"></textarea>
         <div id="wpGrid"></div>
     </div>
 
+    <!-- Movies View -->
+    <div id="moviesView">
+        <div class="mv-section-title">All Movies</div>
+        <div class="mv-grid" id="mvGrid"></div>
+    </div>
+
+    <!-- Anime View -->
+    <div id="animeView">
+        <div id="anGrid"><div class="mv-section-title" style="padding:20px 20px 0">Anime</div><div class="mv-grid" id="anCardGrid"></div></div>
+        <div id="anDetail" style="display:none">
+            <div class="an-header">
+                <button class="an-back" onclick="closeAnimeDetail()">← Back</button>
+                <img class="an-poster" id="anDetailPoster" src="" alt="">
+                <div class="an-meta">
+                    <div class="an-title" id="anDetailTitle"></div>
+                    <div class="an-info" id="anDetailInfo"></div>
+                    <div class="an-version-tabs" id="anVersionTabs"></div>
+                </div>
+            </div>
+            <div class="an-arc-row">
+                <select id="anArcSelect" onchange="selectAnimeArc(this.value)"><option value="">— Select Arc / Range —</option></select>
+            </div>
+            <div class="an-ep-body">
+                <div class="an-ep-status" id="anEpStatus"></div>
+                <div class="an-ep-grid" id="anEpGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movie fullscreen overlay -->
+    <div id="mvOverlay">
+        <button id="mvOverlayClose" onclick="closeMvPlayer()">✕</button>
+        <iframe id="mvFrame" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    </div>
+
     <!-- Cloaking View -->
     <div id="cloakView">
         <h2>&#128084; Tab Cloaking</h2>
@@ -1530,6 +1651,8 @@ print('Hello from Nexos!')" onkeydown="pyTabKey(event)"></textarea>
 
 <!-- More Menu (desktop taskbar overflow) -->
 <div id="moreMenu">
+    <button class="mm-item" onclick="switchView('anime');toggleMoreMenu()"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>Anime</button>
+    <button class="mm-item" onclick="switchView('movies');toggleMoreMenu()"><svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>Movies</button>
     <button class="mm-item" onclick="switchView('radio');toggleMoreMenu()"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.7 1.3 3 3 3s3-1.3 3-3h6c0 1.7 1.3 3 3 3s3-1.3 3-3h2v-5l-3-4zm-.5 1.5l1.96 2.5H17V9.5h2.5zM6 18.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm2.2-3c-.5-.6-1.3-1-2.2-1s-1.7.4-2.2 1H3V6h12v9.5H8.2zM18 18.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z"/></svg>Radio</button>
     <button class="mm-item" onclick="switchView('soundboard');toggleMoreMenu()"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>Soundboard</button>
     <button class="mm-item" onclick="switchView('rooms');toggleMoreMenu()"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12zM10 8.5l6 3.5-6 3.5z"/></svg>Watch Party</button>
@@ -4546,6 +4669,38 @@ function categorizeGames(allGames) {
     return cats;
 }
 
+// ── Version & Auto-Update ─────────────────────────────────────────────────────
+const NEXOS_VERSION = '2026-04-19';
+const NEXOS_UPDATE_URL = 'https://cdn.jsdelivr.net/gh/CRYP70N1CZ/Nexos@main/Main.html';
+
+async function checkForUpdate() {
+    try {
+        const res = await fetch(NEXOS_UPDATE_URL);
+        if (!res.ok) return;
+        const html = await res.text();
+        const m = html.match(/const NEXOS_VERSION\s*=\s*['"]([^'"]+)['"]/);
+        if (!m) return;
+        const remoteVersion = m[1];
+        if (remoteVersion === NEXOS_VERSION) return;
+        // Newer version found — show toast
+        const container = document.getElementById('toastContainer');
+        if (!container) return;
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.style.cssText = 'cursor:pointer;display:flex;align-items:center;gap:10px;';
+        toast.innerHTML = '<span>🔄</span><span><b>Nexos updated</b> to ' + remoteVersion + ' — click to apply</span>';
+        toast.addEventListener('click', function() {
+            toast.innerHTML = '<span>⏳</span><span>Applying update...</span>';
+            var blob = new Blob([html], {type: 'text/html'});
+            window.location.replace(URL.createObjectURL(blob));
+        });
+        container.appendChild(toast);
+        setTimeout(function() { toast.remove(); }, 12000);
+    } catch(e) {}
+}
+
+setTimeout(checkForUpdate, 3000);
+
 // ── Custom games (not on the standard CDN) ──────────────────────────────────────
 const CUSTOM_GAMES = {};
 
@@ -5615,6 +5770,239 @@ CUSTOM_GAMES['geometrydash'] = '<!DOCTYPE html><html lang="en"><head>'
 + '<scr'+'ipt type="module" crossorigin src="assets/scripts/index-game.js"><\/scr'+'ipt>'
 + '<scr'+'ipt>new ResizeObserver(()=>{window.dispatchEvent(new Event("resize"))}).observe(document.documentElement);document.oncontextmenu=e=>e.preventDefault();<\/scr'+'ipt>'
 + '</head><body></body></html>';
+
+CUSTOM_GAMES['Stardew Valley'] = '<!doctype html><html lang="en"><head>'
++ '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">'
++ '<title>Stardew Valley</title>'
++ '<base href="https://cdn.jsdelivr.net/gh/cirsius/stardew-wasm@master/">'
++ '<style>'
++ '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}'
++ 'html,body{width:100%;height:100%;overflow:hidden;background:#000;}'
++ '#loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font:1.5rem/1 sans-serif;z-index:1;flex-direction:column;gap:1rem;}'
++ '#loading.hidden{display:none;}'
++ '#music-choice{display:flex;flex-direction:column;align-items:center;gap:0.75rem;}'
++ '#music-choice button{font:1.1rem/1 sans-serif;padding:0.6rem 1.5rem;border:2px solid #fff;border-radius:6px;background:transparent;color:#fff;cursor:pointer;min-width:260px;transition:background 0.15s;}'
++ '#music-choice button:hover{background:rgba(255,255,255,0.15);}'
++ '#music-choice .hint{font-size:0.85rem;opacity:0.6;}'
++ 'canvas{width:100%;height:100%;display:block;}'
++ '</style>'
++ '</head><body>'
++ '<div id="loading"><div id="music-choice">'
++ '<div>Download options</div>'
++ '<button id="btn-no-music">Play without music <span class="hint">(~64 MB)</span></button>'
++ '<button id="btn-with-music">Play with music <span class="hint">(~540 MB)</span></button>'
++ '</div></div>'
++ '<scr'+'ipt>'
++ 'const originalFetch=window.fetch;'
++ 'window.fetch=function(resource,options={}){options.credentials="omit";return originalFetch(resource,options);};'
++ '(function(){'
++ '  var originalGetDirectory=navigator.storage&&navigator.storage.getDirectory?navigator.storage.getDirectory.bind(navigator.storage):null;'
++ '  function openIDB(){return new Promise(function(resolve,reject){var req=indexedDB.open("stardew-opfs-polyfill",1);req.onupgradeneeded=function(){req.result.createObjectStore("files");};req.onsuccess=function(){resolve(req.result);};req.onerror=function(){reject(req.error);};});}'
++ '  var idbPromise=null;function getIDB(){if(!idbPromise)idbPromise=openIDB();return idbPromise;}'
++ '  function idbGet(db,key){return new Promise(function(resolve,reject){var tx=db.transaction("files","readonly");var req=tx.objectStore("files").get(key);req.onsuccess=function(){resolve(req.result);};req.onerror=function(){reject(req.error);};});}'
++ '  function idbPut(db,key,val){return new Promise(function(resolve,reject){var tx=db.transaction("files","readwrite");var req=tx.objectStore("files").put(val,key);req.onsuccess=function(){resolve();};req.onerror=function(){reject(req.error);};});}'
++ '  function makeWritable(db,name){var chunks=[];return{write:function(data){chunks.push(data instanceof Uint8Array?data.slice():new Uint8Array(data));return Promise.resolve();},close:function(){var total=0;chunks.forEach(function(c){total+=c.length;});var merged=new Uint8Array(total);var off=0;chunks.forEach(function(c){merged.set(c,off);off+=c.length;});return idbPut(db,name,merged);}};}'
++ '  function makeFakeRoot(db){return{getFileHandle:function(name,opts){if(opts&&opts.create){return Promise.resolve({getFile:function(){return idbGet(db,name).then(function(data){return new Blob([data||new Uint8Array(0)]);});},createWritable:function(){return Promise.resolve(makeWritable(db,name));}});}return idbGet(db,name).then(function(data){if(data===undefined)throw new DOMException("Not found","NotFoundError");return{getFile:function(){return Promise.resolve(new Blob([data]));},createWritable:function(){return Promise.resolve(makeWritable(db,name));}};});}}; }'
++ '  if(navigator.storage){navigator.storage.getDirectory=function(){if(originalGetDirectory){return originalGetDirectory().catch(function(){return getIDB().then(makeFakeRoot);});}return getIDB().then(makeFakeRoot);};}'
++ '})();'
++ '<\/scr'+'ipt>'
++ '<canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>'
++ '<scr'+'ipt>'
++ '(async()=>{'
++ 'const BASE=document.querySelector("base").href;'
++ 'const loading=document.getElementById("loading");'
++ 'const canvas=document.getElementById("canvas");'
++ 'const musicChoice=document.getElementById("music-choice");'
++ 'const storage=await navigator.storage.getDirectory();'
++ 'async function storageHas(name){try{await storage.getFileHandle(name);return true;}catch{return false;}}'
++ 'async function storageRead(name){return new Uint8Array(await(await(await storage.getFileHandle(name)).getFile()).arrayBuffer());}'
++ 'async function storageWrite(name,data){const w=await(await storage.getFileHandle(name,{create:true})).createWritable();await w.write(data);await w.close();}'
++ 'async function downloadTar(base,label){'
++ '  loading.textContent=`Downloading ${label}...`;'
++ '  const count=parseInt(await(await fetch(base+".count")).text());'
++ '  const chunks=[];let total=0;'
++ '  for(let i=0;i<count;i++){'
++ '    const res=await fetch(`${base}${String(i).padStart(2,"0")}`);'
++ '    if(!res.ok)throw new Error(`Failed: ${res.status}`);'
++ '    const reader=res.body.getReader();'
++ '    for(;;){const{done,value}=await reader.read();if(done)break;chunks.push(value);total+=value.length;loading.textContent=`Downloading ${label}... ${(total/1048576)|0} MB`;}'
++ '  }'
++ '  const tar=new Uint8Array(total);let off=0;for(const c of chunks){tar.set(c,off);off+=c.length;}return tar;'
++ '}'
++ 'async function getTar(base,label,key){'
++ '  try{loading.textContent=`Loading cached ${label}...`;return await storageRead(key);}'
++ '  catch{const tar=await downloadTar(base,label);try{loading.textContent=`Caching ${label}...`;await storageWrite(key,tar);}catch{}return tar;}'
++ '}'
++ 'const audioCached=await storageHas("ContentAudio.tar");'
++ 'const wantMusic=audioCached||await new Promise((resolve)=>{'
++ '  musicChoice.style.display="";'
++ '  document.getElementById("btn-no-music").onclick=()=>{musicChoice.style.display="none";resolve(false);};'
++ '  document.getElementById("btn-with-music").onclick=()=>{musicChoice.style.display="none";resolve(true);};'
++ '});'
++ 'musicChoice.style.display="none";'
++ 'const contentP=getTar("Content.tar","game content","Content.tar");'
++ 'const audioP=wantMusic?getTar("ContentAudio.tar","music","ContentAudio.tar"):Promise.resolve(null);'
++ 'const runtimeP=(async()=>{'
++ '  const{dotnet}=await import(BASE+"_framework/dotnet.js");'
++ '  return dotnet.withModuleConfig({canvas}).withEnvironmentVariable("MONO_SLEEP_ABORT_LIMIT","99999")'
++ '  .withRuntimeOptions(["--jiterpreter-minimum-trace-hit-count=500","--jiterpreter-trace-monitoring-period=100","--jiterpreter-trace-monitoring-max-average-penalty=150","--jiterpreter-wasm-bytes-limit=67108864","--jiterpreter-table-size=32768"])'
++ '  .withResourceLoader((type,_name,defaultUri,_integrity,behavior)=>{'
++ '    if(type==="dotnetwasm"&&behavior==="dotnetwasm"){return(async()=>{'
++ '      const count=parseInt(await(await fetch(defaultUri+".count")).text());'
++ '      let idx=0;const fetchNext=async()=>{if(idx>=count)return null;const res=await fetch(defaultUri+idx);idx++;return res.ok?res.body.getReader():null;};'
++ '      let current=await fetchNext();if(!current)throw new Error("failed to fetch first wasm chunk");'
++ '      return new Response(new ReadableStream({async pull(controller){const{value,done}=await current.read();if(done||!value){current=await fetchNext();if(current)await this.pull(controller);else controller.close();}else controller.enqueue(value);}}),'
++ '      {headers:{"Content-Type":"application/wasm"}});'
++ '    })();}'
++ '  }).create();'
++ '})();'
++ 'const[contentTar,audioTar,runtime]=await Promise.all([contentP,audioP,runtimeP]);'
++ 'const exports=await runtime.getAssemblyExports(runtime.getConfig().mainAssemblyName);'
++ 'function extractTar(tar,prefix){'
++ '  let pos=0;const dec=new TextDecoder();'
++ '  const str=(buf,o,n)=>{let e=o;while(e<o+n&&buf[e])e++;return dec.decode(buf.subarray(o,e));};'
++ '  const oct=(buf,o,n)=>{const s=str(buf,o,n).trim();return s?parseInt(s,8):0;};'
++ '  while(pos+512<=tar.length){const h=tar.subarray(pos,pos+512);if(!h[0])break;'
++ '    const name=str(h,0,100),size=oct(h,124,12),type=h[156],pref=str(h,345,155);'
++ '    const full=pref?pref+"/"+name:name;pos+=512;'
++ '    if(type===53||name.endsWith("/"))exports.WasmBootstrap.CreateContentDirectory(prefix+full);'
++ '    else if(type===48||type===0){exports.WasmBootstrap.WriteContentFile(prefix+full,tar.subarray(pos,pos+size));}'
++ '    pos+=Math.ceil(size/512)*512;}'
++ '}'
++ 'await runtime.runMain();await exports.WasmBootstrap.PreInit();'
++ 'try{const savesTar=await storageRead("Saves.tar");exports.WasmBootstrap.CreateContentDirectory("/libsdl/saves/Saves");extractTar(savesTar,"/libsdl/saves/Saves/");}catch{}'
++ 'loading.textContent="Loading game files...";extractTar(contentTar,"/libsdl/");'
++ 'if(audioTar){loading.textContent="Loading music...";extractTar(audioTar,"/libsdl/");}'
++ 'loading.classList.add("hidden");'
++ 'const dpr=window.devicePixelRatio||1;'
++ 'const w=Math.round(canvas.clientWidth*dpr)||1280;const h=Math.round(canvas.clientHeight*dpr)||720;'
++ 'await exports.WasmBootstrap.Init(w,h);'
++ 'new ResizeObserver(()=>{const dpr=window.devicePixelRatio||1;const nw=Math.round(canvas.clientWidth*dpr);const nh=Math.round(canvas.clientHeight*dpr);if(nw>0&&nh>0)try{exports.WasmBootstrap.Resize(nw,nh);}catch{};}).observe(canvas);'
++ 'try{navigator.keyboard?.lock();}catch{}'
++ 'document.addEventListener("keydown",(e)=>{if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight","Tab"].includes(e.code))e.preventDefault();});'
++ 'await exports.WasmBootstrap.MainLoop();'
++ '})();'
++ '<\/scr'+'ipt>'
++ '</body></html>';
+
+CUSTOM_GAMES['Escape Road 3'] = '<!DOCTYPE html><html lang="en-us"><head>'
++ '<base href="https://cdn.jsdelivr.net/gh/genizy/escape-road-3@main/">'
++ '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">'
++ '<title>Escape Road 3</title>'
++ '<style>'
++ 'body,html{margin:0;padding:0;width:100%;height:100%;background:#000;overflow:hidden;}'
++ '#unity-container{display:none;width:100%;height:100%;}'
++ '#unity-canvas{width:100%;height:100%;}'
++ '#loadingBlock{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#111;color:#fff;font-family:Arial,sans-serif;}'
++ '#loading-text{font-size:24px;margin-bottom:20px;}'
++ '.gameloader-progressbar{width:400px;max-width:80vw;height:12px;background:#333;border-radius:6px;overflow:hidden;margin:10px 0;}'
++ '.gameloader-progressbar-progress{height:100%;background:#e53;border-radius:6px;transition:width 0.2s;}'
++ '.gameloader-progress-info{font-size:13px;color:#aaa;text-align:center;}'
++ '</style>'
++ '</head><body>'
++ '<div id="unity-container"><canvas id="unity-canvas"></canvas></div>'
++ '<div id="loadingBlock">'
++ '<div id="loading-text">LOADING...</div>'
++ '<div class="gameloader-progressbar"><div class="gameloader-progressbar-progress" id="progress_fill" style="width:0%"></div></div>'
++ '<div class="gameloader-progress-info">Game Loading...</div>'
++ '</div>'
++ '<scr'+'ipt>'
++ 'var firebaseConfig=undefined;'
++ 'function firebaseLogEvent(n){}function firebaseLogEventParameter(n,p){}function firebaseSetUserProperties(p){}'
++ 'window["GMSOFT_SDKTYPE"]="gm";'
++ '/* gmsdksigndomain set dynamically below */'
++ 'var loadingText=document.getElementById("loading-text");'
++ 'var loadedBytes=0;'
++ 'async function fetchWithProgress(url){'
++ '  var response=await fetch(url);'
++ '  var reader=response.body.getReader();'
++ '  var chunks=[],received=0;'
++ '  while(true){'
++ '    var r=await reader.read();'
++ '    if(r.done)break;'
++ '    received+=r.value.length;loadedBytes+=r.value.length;chunks.push(r.value);'
++ '    var mbDone=(loadedBytes/(1024*1024)).toFixed(2);'
++ '    loadingText.textContent="LOADING... "+mbDone+" MB / 162.42 MB";'
++ '  }'
++ '  var buf=new Uint8Array(received);var off=0;'
++ '  for(var c of chunks){buf.set(c,off);off+=c.length;}'
++ '  return buf.buffer;'
++ '}'
++ 'async function mergeFiles(parts,cacheKey){'
++ '  var cache=await caches.open("er3-cache");'
++ '  var hit=await cache.match(cacheKey);'
++ '  if(hit){var blob=await hit.blob();return URL.createObjectURL(blob);}'
++ '  var buffers=await Promise.all(parts.map(function(p){return fetchWithProgress(p);}));'
++ '  var merged=new Blob(buffers);'
++ '  await cache.put(cacheKey,new Response(merged));'
++ '  return URL.createObjectURL(merged);'
++ '}'
++ 'function getParts(file,start,end){'
++ '  var parts=[];for(var i=start;i<=end;i++)parts.push(file+".part"+i);return parts;'
++ '}'
++ '(async function(){'
++ '  var dataUrl=await mergeFiles(getParts("Build/escape-road-3-v26041006.data",1,7),"er3-data");'
++ '  var wasmUrl=await mergeFiles(getParts("Build/escape-road-3-v26041006.wasm",1,3),"er3-wasm");'
++ '  var config={'
++ '    dataUrl:dataUrl,'
++ '    frameworkUrl:"Build/escape-road-3-v26041006.framework.js",'
++ '    codeUrl:wasmUrl,'
++ '    streamingAssetsUrl:"StreamingAssets",'
++ '    companyName:"ozgames.io",'
++ '    productName:"Escape Road 3",'
++ '    productVersion:"26041006",'
++ '    autoSyncPersistentDataPath:true'
++ '  };'
++ '  try{'
++ '    Object.defineProperty(Location.prototype,"hostname",{get:function(){return "games.ofree.io";},configurable:true});'
++ '    Object.defineProperty(Location.prototype,"href",{get:function(){return "https://games.ofree.io/escape-road-3/game.html";},configurable:true});'
++ '    Object.defineProperty(Location.prototype,"host",{get:function(){return "games.ofree.io";},configurable:true});'
++ '    Object.defineProperty(Location.prototype,"origin",{get:function(){return "https://games.ofree.io";},configurable:true});'
++ '    Object.defineProperty(Location.prototype,"protocol",{get:function(){return "https:";},configurable:true});'
++ '  }catch(e){}'
++ '  var progressEl=document.getElementById("progress_fill");'
++ '  var progressInfo=document.querySelector(".gameloader-progress-info");'
++ '  var _er3CachedSig=localStorage.getItem("er3_fresh_sig");'
++ '  if(_er3CachedSig){localStorage.setItem("gmsdksigndomain",_er3CachedSig);}'
++ '  var _origFetch=window.fetch;'
++ '  window.fetch=function(url,opts){'
++ '    var p=_origFetch.apply(this,arguments);'
++ '    if(typeof url==="string"&&url.indexOf("cdnwave.com")!==-1){'
++ '      p.then(function(r){return r.clone().json();}).then(function(d){'
++ '        if(d&&d.c){'
++ '          var fresh=JSON.stringify({signed:d.c,ap:"yes",hn:"games.ofree.io",domain:"games.ofree.io",s:"yes",stype:2});'
++ '          var b64=btoa(unescape(encodeURIComponent(fresh)));'
++ '          localStorage.setItem("er3_fresh_sig",b64);'
++ '          localStorage.setItem("gmsdksigndomain",b64);'
++ '        }'
++ '      }).catch(function(){});'
++ '    }'
++ '    return p;'
++ '  };'
++ '  window.GM_SDK_LockGame=function(){};'
++ '  window.GM_SDK_SetLockState=function(){};'
++ '  var script=document.createElement("script");'
++ '  script.src="Build/escape-road-3-v26041006.loader.js";'
++ '  script.onload=function(){'
++ '    window.GM_SDK_GetVeryfiedSignature=function(){return localStorage.getItem("gmsdksigndomain");};'
++ '    createUnityInstance(document.getElementById("unity-canvas"),config,function(p){'
++ '      progressEl.style.width=(100*p)+"%";'
++ '      progressInfo.textContent=p>=0.99?"Game Loading...":"Downloading: "+Math.round(p*100)+"%";'
++ '    }).then(function(inst){'
++ '      window.unityInstance=inst;'
++ '      setTimeout(function(){document.getElementById("loadingBlock").style.display="none";document.getElementById("unity-container").style.display="block";},1500);'
++ '      var _tries=0;'
++ '      var _iv=setInterval(function(){'
++ '        _tries++;'
++ '        try{inst.SendMessage("GMSDK","OnVerifySignatureSuccess","");clearInterval(_iv);}catch(e){}'
++ '        if(_tries>=20)clearInterval(_iv);'
++ '      },500);'
++ '    }).catch(function(e){alert(e);});'
++ '  };'
++ '  document.body.appendChild(script);'
++ '})();'
++ '<\/scr'+'ipt>'
++ '</body></html>';
 
 CUSTOM_GAMES['clslope'] = '<!DOCTYPE html>'
 + '<html lang="en-us">'
@@ -7785,6 +8173,8 @@ function switchView(v) {
     document.getElementById('htmlRunnerView').style.display = 'none';
     document.getElementById('soundboardView').style.display = 'none';
     document.getElementById('cloakView').style.display = 'none';
+    document.getElementById('moviesView').style.display = 'none';
+    document.getElementById('animeView').style.display = 'none';
 
     if (v === 'home') {
         document.getElementById('homeView').style.display = 'block';
@@ -7872,6 +8262,12 @@ function switchView(v) {
     } else if (v === 'cloaking') {
         document.getElementById('cloakView').style.display = 'block';
         _syncCloakToggles();
+    } else if (v === 'movies') {
+        document.getElementById('moviesView').style.display = 'block';
+        renderMovieGrid();
+    } else if (v === 'anime') {
+        document.getElementById('animeView').style.display = 'flex';
+        renderAnimeGrid();
     } else {
         // 'games' view — category grid
         gameList.style.display  = 'block';
@@ -7951,6 +8347,7 @@ function joinChat() {
     // Subscribe to reactions
     _ablyChannel.subscribe('reaction', function(msg) {
         if (msg.data && msg.data.msgId && msg.data.emoji && msg.data.nick) {
+            if (msg.data.nick === _ablyChatNick) return;
             _applyReaction(msg.data.msgId, msg.data.emoji, msg.data.nick);
         }
     });
@@ -8642,24 +9039,14 @@ function injectCloak() {
     // Capture the entire current page HTML
     var fullHTML = document.documentElement.outerHTML;
 
-    // Force hub mode by modifying the CSS in the captured HTML
-    // Hide the fake 404 and show the hub directly
-    fullHTML = fullHTML.replace(
-        '#fake404 { text-align: center; padding: 40px; max-width: 600px; }',
-        '#fake404 { display: none !important; }'
-    );
-    fullHTML = fullHTML.replace(
-        'canvas#bg { display: none; }',
-        'canvas#bg { display: block !important; position: fixed; inset: 0; z-index: 0; pointer-events: none; }'
-    );
-    fullHTML = fullHTML.replace(
-        '#hub { display: none; position: relative; z-index: 1; width: 100vw; min-height: 100vh;',
-        '#hub { display: block !important; position: relative; z-index: 1; width: 100vw; min-height: 100vh;'
-    );
-    fullHTML = fullHTML.replace(
-        'body { background: #fff; color: #000; font-family: \'Roboto\', \'Segoe UI\', Arial, sans-serif;',
-        'body { background: #000 !important; color: #e8e8e8 !important; font-family: "Inter", sans-serif !important;'
-    );
+    // Inject a style override before </head> to switch from fake404 to hub mode
+    var hubOverride = '<style>'
+        + '#fake404{display:none!important}'
+        + 'canvas#bg{display:block!important;position:fixed;inset:0;z-index:0;pointer-events:none}'
+        + '#hub{display:block!important}'
+        + 'body{background:#000!important;color:#e8e8e8!important;font-family:"Inter",sans-serif!important;flex-direction:row!important}'
+        + '</style>';
+    fullHTML = fullHTML.replace('</head>', hubOverride + '</head>');
 
     // Open about:blank directly
     var cloakWin = window.open('', '_blank');
@@ -8831,9 +9218,10 @@ function popOutAi() {
     + 'body{background:#0a0a0a;color:#e8e8e8;font-family:Inter,sans-serif;display:flex;flex-direction:column;height:100vh;}'
     + 'h2{padding:14px 16px;font-size:16px;border-bottom:1px solid #1a1a1a;color:' + accent + ';flex-shrink:0;} h2 span{color:#555;font-size:11px;font-weight:600;margin-left:6px;}'
     + '#msgs{flex:1;overflow-y:auto;padding:12px 16px;display:flex;flex-direction:column;gap:8px;}'
-    + '.ai-msg{padding:10px 14px;border-radius:10px;max-width:85%;font-size:13px;line-height:1.5;word-wrap:break-word;white-space:pre-wrap;}'
+    + '.ai-msg{padding:10px 14px;border-radius:10px;max-width:85%;font-size:13px;line-height:1.5;word-wrap:break-word;}'
     + '.ai-msg.user{background:' + accent + ';color:#000;align-self:flex-end;font-weight:600;border-bottom-right-radius:3px;}'
     + '.ai-msg.assistant{background:#1a1a1a;color:#ccc;align-self:flex-start;border-bottom-left-radius:3px;}'
+    + '.ai-msg.assistant p{margin:2px 0}.ai-msg.assistant ul,.ai-msg.assistant ol{margin:4px 0;padding-left:20px}.ai-msg.assistant pre{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:6px;padding:8px 10px;margin:6px 0;overflow-x:auto}.ai-msg.assistant pre code{background:none;color:#00ff88;font-family:monospace;font-size:12px}.ai-msg.assistant code{background:rgba(255,255,255,0.1);padding:1px 4px;border-radius:3px;color:#00ff88;font-size:12px}.ai-msg.assistant mark{background:rgba(255,235,59,0.2);color:#ffeb3b}.ai-msg.assistant a{color:' + accent + '}.ai-msg.assistant strong{color:#fff}.ai-msg.assistant table{border-collapse:collapse;margin:6px 0;font-size:12px}.ai-msg.assistant th,.ai-msg.assistant td{border:1px solid #333;padding:3px 8px}.ai-msg.assistant th{background:#222}'
     + '.ai-msg.typing{opacity:.6;} .ai-msg img{max-width:200px;border-radius:6px;display:block;margin-bottom:4px;}'
     + '#preview{display:none;padding:6px 12px;border-top:1px solid #1a1a1a;align-items:center;gap:8px;flex-shrink:0;} #preview img{height:48px;border-radius:6px;border:1px solid #333;} #preview button{background:none;border:none;color:#f44;font-size:18px;cursor:pointer;}'
     + '#bar{display:flex;gap:6px;padding:10px 12px;border-top:1px solid #1a1a1a;flex-shrink:0;align-items:flex-end;}'
@@ -8884,14 +9272,14 @@ function popOutAi() {
         var d = wdoc.createElement('div');
         d.className = 'ai-msg ' + role;
         if(img) { var i = wdoc.createElement('img'); i.src = img; d.appendChild(i); }
-        if(text) { var s = wdoc.createElement('span'); s.textContent = text; d.appendChild(s); }
+        if(text) { var s = wdoc.createElement('span'); if(role.indexOf('assistant')!==-1&&role.indexOf('typing')===-1){s.innerHTML=renderMarkdown(text);}else{s.textContent=text;} d.appendChild(s); }
         w.appendChild(d);
         w.scrollTop = w.scrollHeight;
-        
+
         var md = document.createElement('div');
         md.className = 'ai-msg ' + role;
         if(img) { var mi = document.createElement('img'); mi.src = img; md.appendChild(mi); }
-        if(text) { var ms = document.createElement('span'); ms.textContent = text; md.appendChild(ms); }
+        if(text) { var ms = document.createElement('span'); if(role.indexOf('assistant')!==-1&&role.indexOf('typing')===-1){ms.innerHTML=renderMarkdown(text);}else{ms.textContent=text;} md.appendChild(ms); }
         var mainM = document.getElementById('aiMessages');
         mainM.appendChild(md);
         mainM.scrollTop = mainM.scrollHeight;
@@ -8944,17 +9332,19 @@ function popOutAi() {
                 
                 var data = await res.json();
                 var reply = data.choices[0].message.content;
+                var replyPop = reply + (mi > 0 ? '\n*(via ' + models[mi] + ')*' : '');
                 typing.className = 'ai-msg assistant';
-                typing.textContent = reply;
-                if (mi > 0) typing.textContent += "\\n(via " + models[mi] + ")";
-                
+                typing.innerHTML = renderMarkdown(replyPop);
+                renderAiCharts(typing);
+
                 aiHistory.push({role: 'assistant', content: reply});
-                
+
                 var mainBubbles = document.getElementById('aiMessages').querySelectorAll('.ai-msg.assistant.typing');
                 if (mainBubbles.length > 0) {
                     var lastB = mainBubbles[mainBubbles.length - 1];
                     lastB.className = 'ai-msg assistant';
-                    lastB.textContent = typing.textContent;
+                    lastB.innerHTML = renderMarkdown(replyPop);
+                    renderAiCharts(lastB);
                 }
                 lastErr = null;
                 break;
@@ -8970,7 +9360,7 @@ function popOutAi() {
             if (mainBubbles.length > 0) {
                 var lastB = mainBubbles[mainBubbles.length - 1];
                 lastB.className = 'ai-msg assistant';
-                lastB.textContent = typing.textContent;
+                lastB.textContent = 'Error: ' + lastErr;
             }
         }
     }
@@ -9022,6 +9412,159 @@ function popOutAi() {
     };
 }
 
+function _aiEsc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function _aiInline(s) {
+    s = s.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+    s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    s = s.replace(/__(.+?)__/g, '<strong>$1</strong>');
+    s = s.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+    s = s.replace(/_([^_\n]+?)_/g, '<em>$1</em>');
+    s = s.replace(/~~(.+?)~~/g, '<del>$1</del>');
+    s = s.replace(/==(.+?)==/g, '<mark>$1</mark>');
+    s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+    s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    return s;
+}
+
+function renderMarkdown(text) {
+    var lines = text.split('\n');
+    var html = '', inCode = false, inUl = false, inOl = false, inTable = false;
+    var codeBuf = '', codeLang = '';
+
+    function closeBlocks() {
+        if (inUl) { html += '</ul>'; inUl = false; }
+        if (inOl) { html += '</ol>'; inOl = false; }
+        if (inTable) { html += '</tbody></table>'; inTable = false; }
+    }
+
+    for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+
+        if (/^```/.test(line)) {
+            if (inCode) {
+                var isChart = codeLang === 'chart';
+                if (!isChart && (codeLang === 'json' || codeLang === '')) {
+                    try { var p=JSON.parse(codeBuf); if(p.type&&p.labels&&p.datasets) isChart=true; } catch(e){}
+                }
+                if (isChart) {
+                    html += '<canvas class="ai-chart" data-chart="' + codeBuf.replace(/"/g,'&quot;') + '"></canvas>';
+                } else {
+                    html += '<pre><code>' + _aiEsc(codeBuf) + '</code></pre>';
+                }
+                codeBuf = ''; codeLang = ''; inCode = false;
+            } else {
+                closeBlocks();
+                inCode = true; codeLang = line.slice(3).trim();
+            }
+            continue;
+        }
+        if (inCode) { codeBuf += (codeBuf ? '\n' : '') + line; continue; }
+
+        // Table row
+        if (/^\|.+\|/.test(line)) {
+            var cells = line.replace(/^\||\|$/g,'').split('|');
+            if (/^[\s\-\|:]+$/.test(line)) continue; // separator row
+            if (!inTable) {
+                closeBlocks();
+                html += '<table><tbody>';
+                inTable = true;
+            }
+            html += '<tr>' + cells.map(function(c){ return '<td>' + _aiInline(_aiEsc(c.trim())) + '</td>'; }).join('') + '</tr>';
+            continue;
+        }
+        if (inTable) { html += '</tbody></table>'; inTable = false; }
+
+        // Heading
+        var hm = line.match(/^(#{1,4}) (.+)$/);
+        if (hm) { closeBlocks(); var ht='h'+Math.min(hm[1].length+1,5); html += '<'+ht+'>'+_aiInline(_aiEsc(hm[2]))+'</'+ht+'>'; continue; }
+
+        // HR
+        if (/^[\-\*_]{3,}$/.test(line.trim())) { closeBlocks(); html += '<hr>'; continue; }
+
+        // Unordered list
+        var ulm = line.match(/^[\*\-\+] (.*)$/);
+        if (ulm) { if (inOl){html+='</ol>';inOl=false;} if (!inUl){html+='<ul>';inUl=true;} html += '<li>'+_aiInline(_aiEsc(ulm[1]))+'</li>'; continue; }
+
+        // Ordered list
+        var olm = line.match(/^\d+\. (.*)$/);
+        if (olm) { if (inUl){html+='</ul>';inUl=false;} if (!inOl){html+='<ol>';inOl=true;} html += '<li>'+_aiInline(_aiEsc(olm[1]))+'</li>'; continue; }
+
+        // Blank line
+        if (!line.trim()) { closeBlocks(); html += '<br>'; continue; }
+
+        closeBlocks();
+        html += '<p>' + _aiInline(_aiEsc(line)) + '</p>';
+    }
+    if (inUl) html += '</ul>';
+    if (inOl) html += '</ol>';
+    if (inTable) html += '</tbody></table>';
+    if (inCode) {
+        var isChart2 = codeLang === 'chart';
+        if (!isChart2 && (codeLang === 'json' || codeLang === '')) {
+            try { var p2=JSON.parse(codeBuf); if(p2.type&&p2.labels&&p2.datasets) isChart2=true; } catch(e){}
+        }
+        if (isChart2) html += '<canvas class="ai-chart" data-chart="' + codeBuf.replace(/"/g,'&quot;') + '"></canvas>';
+        else html += '<pre><code>' + _aiEsc(codeBuf) + '</code></pre>';
+    }
+    return html;
+}
+
+var _chartJsLoaded = false;
+var _chartJsLoading = null;
+function loadChartJs() {
+    if (_chartJsLoaded) return Promise.resolve();
+    if (_chartJsLoading) return _chartJsLoading;
+    _chartJsLoading = new Promise(function(resolve) {
+        var s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js';
+        s.onload = function() { _chartJsLoaded = true; resolve(); };
+        s.onerror = resolve;
+        document.head.appendChild(s);
+    });
+    return _chartJsLoading;
+}
+
+function renderAiCharts(el) {
+    var canvases = el.querySelectorAll('canvas.ai-chart:not([data-rendered])');
+    if (!canvases.length) return;
+    loadChartJs().then(function() {
+        canvases.forEach(function(canvas) {
+            canvas.setAttribute('data-rendered','1');
+            var wrap = document.createElement('div');
+            wrap.style.cssText = 'width:100%;max-width:480px;height:220px;margin:8px 0;border-radius:8px;background:#111;overflow:hidden;position:relative;';
+            canvas.parentNode.insertBefore(wrap, canvas);
+            wrap.appendChild(canvas);
+            canvas.style.cssText = 'display:block;';
+            try {
+                var cfg = JSON.parse(canvas.getAttribute('data-chart').replace(/&quot;/g,'"'));
+                var datasets = (cfg.datasets || []).map(function(ds, i) {
+                    var palette = ['#00ff88','#00bfff','#ff6b6b','#ffd700','#c084fc','#fb923c'];
+                    var col = ds.color || palette[i % palette.length];
+                    return Object.assign({ backgroundColor: col + '44', borderColor: col, borderWidth: 2, tension: 0.4, fill: cfg.type === 'line' }, ds);
+                });
+                canvas.width = 480;
+                canvas.height = 220;
+                new Chart(canvas, {
+                    type: cfg.type || 'bar',
+                    data: { labels: cfg.labels || [], datasets: datasets },
+                    options: {
+                        responsive: false, maintainAspectRatio: false,
+                        plugins: {
+                            legend: { labels: { color: '#aaa', font: { size: 11 } } },
+                            title: cfg.title ? { display: true, text: cfg.title, color: '#eee', font: { size: 13 } } : { display: false }
+                        },
+                        scales: (cfg.type === 'pie' || cfg.type === 'doughnut') ? {} : {
+                            x: { ticks: { color: '#888' }, grid: { color: '#222' } },
+                            y: { ticks: { color: '#888' }, grid: { color: '#222' } }
+                        }
+                    }
+                });
+            } catch(e) { canvas.insertAdjacentHTML('afterend','<p style="color:#f66;font-size:11px">Chart error: '+e.message+'</p>'); }
+        });
+    });
+}
+
 function appendAiMsg(role, text, imgSrc) {
     var wrap = document.getElementById('aiMessages');
     var div = document.createElement('div');
@@ -9033,7 +9576,11 @@ function appendAiMsg(role, text, imgSrc) {
     }
     if (text) {
         var span = document.createElement('span');
-        span.textContent = text;
+        if (role.indexOf('assistant') !== -1 && role.indexOf('typing') === -1) {
+            span.innerHTML = renderMarkdown(text);
+        } else {
+            span.textContent = text;
+        }
         div.appendChild(span);
     }
     wrap.appendChild(div);
@@ -9083,7 +9630,7 @@ async function sendAiMsg() {
                 body: JSON.stringify({
                     model: models[mi],
                     messages: [
-                        { role: 'system', content: 'You are a helpful AI assistant inside a hub called Nexos. Be concise and friendly.' }
+                        { role: 'system', content: 'You are a helpful AI assistant inside a hub called Nexos. Be concise and friendly. When the user asks for a chart, graph, or data visualization, respond with a ```chart JSON block using this format: {"type":"bar","title":"Title","labels":["A","B"],"datasets":[{"label":"Series","data":[1,2]}]}. Supported types: bar, line, pie, doughnut. Use this format whenever data would be clearer as a visual.' }
                     ].concat(aiHistory)
                 })
             });
@@ -9098,8 +9645,9 @@ async function sendAiMsg() {
             var reply = data.choices[0].message.content;
 
             typing.className = 'ai-msg assistant';
-            typing.textContent = reply;
-            if (mi > 0) typing.textContent += '\n(via ' + models[mi] + ')';
+            var replyText = reply + (mi > 0 ? '\n*(via ' + models[mi] + ')*' : '');
+            typing.querySelector('span') ? (typing.querySelector('span').innerHTML = renderMarkdown(replyText)) : (typing.innerHTML = renderMarkdown(replyText));
+            renderAiCharts(typing);
             aiHistory.push({ role: 'assistant', content: reply });
             lastErr = null;
             break;
@@ -10246,7 +10794,7 @@ var _REACT_EMOJIS = ['👍','❤️','😂','😮','😢','🔥','👀','💯','
 function _genMsgId() { return Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
 
 function toggleReactPicker(btn) {
-    var picker = btn.nextElementSibling;
+    var picker = btn.querySelector('.react-picker');
     var isOpen = picker.classList.contains('open');
     document.querySelectorAll('.react-picker.open').forEach(function(p){ p.classList.remove('open'); });
     if (!isOpen) picker.classList.add('open');
@@ -11099,6 +11647,227 @@ function toggleHideHistory(on) {
     } else {
         showToast('History cloaking off — reload to restore URL', 'fa-history');
     }
+}
+
+// ── Movies ─────────────────────────────────────────────────────────────────────
+var MOVIES = [
+    { title: 'Avatar', year: '2009', genre: 'Sci-Fi', cover: 'https://image.tmdb.org/t/p/w342/gKY6q7SjCkAU6FqvqWybDYgUKIF.jpg', driveId: '16tKuEYtxi7EeKtX3yZZR-nXgZ_oGTxXS' },
+    { title: 'Space Jam', year: '1996', genre: 'Comedy', cover: 'https://image.tmdb.org/t/p/w342/4RN5El3Pj2W4gpwgiAGLVfSJv2g.jpg', driveId: '1QK9RHd2T-ijthIL7A6NQvRztPkTx8NtN' },
+    { title: 'Space Jam: A New Legacy', year: '2021', genre: 'Comedy', cover: 'https://image.tmdb.org/t/p/w342/mDACFTANR34u6lvucazoYiFJOp7.jpg', driveId: '17hubcXZlc8AQCick-5kdB11mpEQlM1Zw' },
+    { title: 'Avengers: Endgame', year: '2019', genre: 'Action', cover: 'https://image.tmdb.org/t/p/w342/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg', driveId: '1UsxNtlBxGFp955GwEB-s8wYJCA6bXt7e' },
+    { title: 'Avengers: Infinity War', year: '2018', genre: 'Action', cover: 'https://image.tmdb.org/t/p/w342/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg', driveId: '1zpl7Dngm7ESW_yLZvcQMm9AhmR1izyus' },
+    { title: 'Wicked', year: '2024', genre: 'Musical', cover: 'https://image.tmdb.org/t/p/w342/xDGbZ0JJ3mYaGKy4Nzd9Kph6M9L.jpg', driveId: '1EiT5_VDJyMbrG5ezazVyzzOu1nWAkmE8' },
+    { title: 'Interstellar', year: '2014', genre: 'Sci-Fi', cover: 'https://image.tmdb.org/t/p/w342/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg', driveId: '1IniJM6sFbGSlGLHDznFP7vxnNgpWPBIl' },
+    { title: 'M3GAN 2.0', year: '2025', genre: 'Horror', cover: 'https://image.tmdb.org/t/p/w342/oekamLQrwlJjRNmfaBE4llIvkir.jpg', driveId: '1QkIGawMXMjf-FQ18o169NPPB8_l-Wx0I' },
+    { title: "Diddy: Monster's Fall", year: '2025', genre: 'Documentary', cover: 'https://image.tmdb.org/t/p/w342/nNW5MBRe0zoeyyRVnfOq3cuYzqn.jpg', driveId: '1ptJdU8If1DhaevNXIVnvy8Ugx5jX9CFy' },
+    { title: 'Scream 7', year: '2026', genre: 'Horror', cover: 'https://image.tmdb.org/t/p/w342/jjyuk0edLiW8vOSnlfwWCCLpbh5.jpg', driveId: '1RtaN8_Xsodf4Ub5K_yRp6eOx62tbj7Ap' },
+    { title: "Five Nights at Freddy's 2", year: '2025', genre: 'Horror', cover: 'https://image.tmdb.org/t/p/w342/udAxQEORq2I5wxI97N2TEqdhzBE.jpg', driveId: '1dW1XsOWtiL0mGHOFIB8n0rEhLPoa2buJ' },
+    { title: 'The Super Mario Bros. Movie', year: '2023', genre: 'Animation', cover: 'https://image.tmdb.org/t/p/w342/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg', driveId: '1OsyF2LKJqjtv0b2Xd9GWOLcYkzny3VZo' },
+    { title: 'The Purge', year: '2013', genre: 'Horror', cover: 'https://image.tmdb.org/t/p/w342/46X1ei9uf13nkkr0OhWldGyr5Uh.jpg', driveId: '1PFz-u8_kVFY8Z--NyloACB1DUwiT0oK4' },
+    { title: 'A Minecraft Movie', year: '2025', genre: 'Adventure', cover: 'https://image.tmdb.org/t/p/w342/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg', driveId: '1Oppg2lJlwwqKmPK8z4HNcdeiEyf6GaHq' },
+    { title: 'Demon Slayer: Infinity Castle', year: '2025', genre: 'Anime', cover: 'https://image.tmdb.org/t/p/w342/fWVSwgjpT2D78VUh6X8UBd2rorW.jpg', driveId: '1fYPbdWE7YgFEx_v5hxJDfLi_8L908oKh' },
+    { title: 'Finding Nemo', year: '2003', genre: 'Animation', cover: 'https://image.tmdb.org/t/p/w342/eHuGQ10FUzK1mdOY69wF5pGgEf5.jpg', driveId: '11CN0fT7CwCHgz__mY4FWjcoT5w_wZD9S' },
+    { title: 'Diary of a Wimpy Kid: Rodrick Rules', year: '2011', genre: 'Comedy', cover: 'https://image.tmdb.org/t/p/w342/w77ZoDmHNf6lnk8NWsXqWYOQqnp.jpg', driveId: '1rKRsgdNioFs3rtkZai7Gz97FtAX0jdJ_' },
+];
+var _mvRendered = false;
+function renderMovieGrid() {
+    if (_mvRendered) return;
+    _mvRendered = true;
+    var grid = document.getElementById('mvGrid');
+    grid.innerHTML = '';
+    MOVIES.forEach(function(m) {
+        var card = document.createElement('div');
+        card.className = 'mv-card';
+        var coverHtml = m.cover
+            ? '<img class="mv-cover" src="' + m.cover + '" alt="' + m.title + '" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'
+              + '<div class="mv-cover-placeholder" style="display:none">🎬</div>'
+            : '<div class="mv-cover-placeholder">🎬</div>';
+        card.innerHTML = coverHtml
+            + '<div class="mv-info"><div class="mv-title">' + m.title + '</div>'
+            + '<div class="mv-meta">' + m.year + ' · ' + m.genre + '</div></div>';
+        card.onclick = function() { playMovie(m); };
+        grid.appendChild(card);
+    });
+}
+function playMovie(m) {
+    var overlay = document.getElementById('mvOverlay');
+    var frame = document.getElementById('mvFrame');
+    frame.src = 'https://drive.google.com/file/d/' + m.driveId + '/preview';
+    overlay.style.display = 'block';
+}
+function closeMvPlayer() {
+    var overlay = document.getElementById('mvOverlay');
+    var frame = document.getElementById('mvFrame');
+    overlay.style.display = 'none';
+    frame.src = '';
+}
+
+// ── Anime ──────────────────────────────────────────────────────────────────────
+var ANIME = [
+  { title:'One Piece', cover:'https://image.tmdb.org/t/p/w342/uiIB9ctqZFbfRXXimtpmZb5dusi.jpg', year:'1999', genre:'Action · Adventure', rootFolderId:'1VdoAVMV9ojCefzkVMsXB3ms5TCEcgxoC' }
+];
+
+var _anCurrentIdx = -1, _anVersionFolders = [], _anCurrentVersionIdx = -1, _anRendered = false;
+
+var _GAS_EXEC = 'https://script.google.com/macros/s/AKfycbwwsQ9zAoZ45vUH2AC09opsOoVOCfYwj1mDTREIdcOvEJqzb6BeigCmGmjy2w2wA_Jocg/exec';
+
+function _waitGoogle(ms) {
+    return new Promise(function(resolve) {
+        var deadline = Date.now() + ms;
+        (function poll() {
+            if (typeof google !== 'undefined' && google.script && google.script.run) return resolve(true);
+            if (Date.now() >= deadline) return resolve(false);
+            setTimeout(poll, 150);
+        })();
+    });
+}
+
+function _gasCall(fnName, arg) {
+    return _waitGoogle(2500).then(function(gasReady) {
+        if (gasReady) {
+            return new Promise(function(resolve, reject) {
+                google.script.run
+                    .withSuccessHandler(function(r) { resolve(r || []); })
+                    .withFailureHandler(function(e) { reject(typeof e === 'object' ? (e.message || JSON.stringify(e)) : String(e)); })
+                    [fnName](arg);
+            });
+        }
+        var type = (fnName === 'getAnimeFolders') ? 'folders' : 'files';
+        var url = _GAS_EXEC + '?action=folderContents&type=' + type + '&folderId=' + encodeURIComponent(arg);
+        return fetch(url)
+            .then(function(r) {
+                if (!r.ok) throw new Error('Server returned HTTP ' + r.status);
+                return r.json();
+            })
+            .then(function(d) { return Array.isArray(d) ? d : []; });
+    });
+}
+
+function renderAnimeGrid() {
+    if (_anRendered) return;
+    _anRendered = true;
+    var grid = document.getElementById('anCardGrid');
+    grid.innerHTML = '';
+    ANIME.forEach(function(show, i) {
+        var card = document.createElement('div');
+        card.className = 'mv-card';
+        var coverHtml = show.cover
+            ? '<img class="mv-cover" src="' + show.cover + '" alt="' + show.title + '" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'
+              + '<div class="mv-cover-placeholder" style="display:none">⚔️</div>'
+            : '<div class="mv-cover-placeholder">⚔️</div>';
+        card.innerHTML = coverHtml + '<div class="mv-info"><div class="mv-title">' + show.title + '</div>'
+            + '<div class="mv-meta">' + show.year + ' · ' + show.genre + '</div></div>';
+        card.onclick = function() { openAnime(i); };
+        grid.appendChild(card);
+    });
+}
+
+function openAnime(idx) {
+    _anCurrentIdx = idx;
+    _anVersionFolders = [];
+    _anCurrentVersionIdx = -1;
+    var show = ANIME[idx];
+    document.getElementById('anGrid').style.display = 'none';
+    document.getElementById('anDetail').style.display = 'flex';
+    document.getElementById('anDetailPoster').src = show.cover || '';
+    document.getElementById('anDetailTitle').textContent = show.title;
+    document.getElementById('anDetailInfo').textContent = show.year + ' · ' + show.genre;
+    document.getElementById('anVersionTabs').innerHTML = '<span style="font-size:11px;color:#333">Loading versions...</span>';
+    document.getElementById('anArcSelect').innerHTML = '<option value="">— Select Arc / Range —</option>';
+    document.getElementById('anEpGrid').innerHTML = '';
+    document.getElementById('anEpStatus').textContent = '';
+    _gasCall('getAnimeFolders', show.rootFolderId).then(function(folders) {
+        _anVersionFolders = folders;
+        var tabs = document.getElementById('anVersionTabs');
+        tabs.innerHTML = '';
+        folders.forEach(function(v, i) {
+            var btn = document.createElement('button');
+            btn.className = 'an-vtab' + (i === 0 ? ' active' : '');
+            btn.textContent = v.name;
+            btn.onclick = function() { selectAnimeVersion(i); };
+            tabs.appendChild(btn);
+        });
+        if (folders.length) selectAnimeVersion(0);
+    }).catch(function(e) {
+        document.getElementById('anVersionTabs').innerHTML = '<span style="color:#c44;font-size:11px">Failed to load: ' + (e.message||e) + '</span>';
+    });
+}
+
+function closeAnimeDetail() {
+    document.getElementById('anDetail').style.display = 'none';
+    document.getElementById('anGrid').style.display = '';
+    document.getElementById('anEpGrid').innerHTML = '';
+    document.getElementById('anEpStatus').textContent = '';
+    document.getElementById('anArcSelect').innerHTML = '<option value="">— Select Arc / Range —</option>';
+}
+
+function selectAnimeVersion(vIdx) {
+    _anCurrentVersionIdx = vIdx;
+    document.querySelectorAll('.an-vtab').forEach(function(b, i) { b.classList.toggle('active', i === vIdx); });
+    var versionFolder = _anVersionFolders[vIdx];
+    var sel = document.getElementById('anArcSelect');
+    sel.innerHTML = '<option value="">Loading arcs...</option>';
+    document.getElementById('anEpGrid').innerHTML = '';
+    document.getElementById('anEpStatus').textContent = '';
+    _gasCall('getAnimeFolders', versionFolder.id).then(function(arcs) {
+        sel.innerHTML = '<option value="">— Select Arc / Range —</option>';
+        if (!arcs.length) {
+            // No subfolders — this version has files directly (e.g. specials listed flat)
+            sel.innerHTML = '<option value="__direct__">All Episodes</option>';
+            sel.value = '__direct__';
+            selectAnimeArc('__direct__');
+            return;
+        }
+        arcs.forEach(function(arc, i) {
+            var opt = document.createElement('option');
+            opt.value = arc.id;
+            opt.textContent = arc.name;
+            sel.appendChild(opt);
+        });
+    }).catch(function() {
+        sel.innerHTML = '<option value="">Failed to load arcs</option>';
+    });
+}
+
+function selectAnimeArc(val) {
+    if (!val || val === '') return;
+    var folderId = val === '__direct__' ? _anVersionFolders[_anCurrentVersionIdx].id : val;
+    var arcName = val === '__direct__' ? 'All Episodes' : document.getElementById('anArcSelect').options[document.getElementById('anArcSelect').selectedIndex].text;
+    document.getElementById('anEpGrid').innerHTML = '<div class="an-ep-loading">Loading episodes...</div>';
+    document.getElementById('anEpStatus').textContent = '';
+    _gasCall('getAnimeFiles', folderId).then(function(files) {
+        renderAnimeEpGrid(files, arcName);
+    }).catch(function(e) {
+        document.getElementById('anEpGrid').innerHTML = '<div class="an-ep-error">Error: ' + (e.message||e) + '</div>';
+    });
+}
+
+function renderAnimeEpGrid(files, arcName) {
+    var grid = document.getElementById('anEpGrid');
+    grid.innerHTML = '';
+    if (!files.length) {
+        grid.innerHTML = '<div class="an-ep-error">No episodes found in this folder.</div>';
+        return;
+    }
+    document.getElementById('anEpStatus').textContent = files.length + ' episode' + (files.length !== 1 ? 's' : '') + ' · ' + arcName;
+    files.forEach(function(f, i) {
+        var btn = document.createElement('button');
+        btn.className = 'an-ep-btn';
+        btn.title = f.name;
+        var epNum = extractEpNum(f.name, i + 1);
+        btn.textContent = epNum;
+        btn.onclick = function() {
+            document.querySelectorAll('.an-ep-btn').forEach(function(b) { b.classList.remove('playing'); });
+            btn.classList.add('playing');
+            playMovie({ driveId: f.id });
+        };
+        grid.appendChild(btn);
+    });
+}
+
+function extractEpNum(name, fallback) {
+    var m = name.match(/\b(\d{1,4})\b/);
+    return m ? parseInt(m[1]) : fallback;
 }
 
 function _syncCloakToggles() {
