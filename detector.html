@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>d</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-end;
+            height: 100vh;
+        }
+
+        #wrap {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.88);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 6px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 4px;
+            transform: scaleX(-1);
+            display: block;
+        }
+
+        #status {
+            color: #0f0;
+            font-size: 11px;
+            margin-top: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 6px;
+        }
+
+        #barWrap {
+            flex: 1;
+            height: 4px;
+            background: #222;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        #bar {
+            display: block;
+            height: 100%;
+            width: 0%;
+            background: #0f0;
+            transition: width 0.1s;
+        }
+
+        #err {
+            color: #ff5555;
+            font-size: 10px;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <video id="v" autoplay playsinline muted></video>
+        <div id="status"><span id="label">⏳ Init</span><span id="barWrap"><span id="bar"></span></span></div>
+        <div id="err" style="display:none"></div>
+    </div>
+    <script>
+        (function () {
+            var v = document.getElementById('v');
+            var bar = document.getElementById('bar');
+            var label = document.getElementById('label');
+            var err = document.getElementById('err');
+            var canvas = document.createElement('canvas');
+            canvas.width = 160; canvas.height = 120;
+            var ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+            var state = {
+                running: false,
+                stream: null,
+                prev: null,
+                baseline: 20,
+                sensitivity: 8,
+                cooldownUntil: 0,
+                ready: false
+            };
+
+            function post(msg) { try { parent.postMessage(msg, '*'); } catch (e) { } }
+
+            function start() {
+                if (state.running) return;
+                if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                    err.textContent = 'No camera API';
+                    err.style.display = 'block';
+                    post({ type: 'error', message: 'no-getusermedia' });
+                    return;
+                }
+                navigator.mediaDevices.getUserMedia({ video: { width: 160, height: 120 }, audio: false })
+                    .then(function (s) {
+                        state.stream = s;
+                        v.srcObject = s;
+                        state.running = true;
+                        state.ready = true;
+                        label.textContent = '🟢 Armed';
+                        post({ type: 'started' });
+                        requestAnimationFrame(loop);
+                    })
+                    .catch(function (e) {
+                        err.textContent = 'Camera: ' + (e.name || e.message);
+                        err.style.display = 'block';
+                        label.textContent = '⛔ Denied';
+                        post({ type: 'error', message: e.name || e.message });
+                    });
+            }
+
+            function stop() {
+                state.running = false;
+                if (state.stream) state.stream.getTracks().forEach(function (t) { t.stop(); });
+                state.stream = null;
+                v.srcObject = null;
+                label.textContent = '⏸ Off';
+                bar.style.width = '0%';
+                post({ type: 'stopped' });
+            }
+
+            function calibrate() {
+                if (!state.running) return;
+                label.textContent = '🎚 Calibrating...';
+                var samples = [], t0 = Date.now(), prev = null;
+                (function step() {
+                    if (Date.now() - t0 > 3000) {
+                        if (samples.length) {
+                            var avg = samples.reduce(function (a, b) { return a + b; }, 0) / samples.length;
+                            state.baseline = Math.max(5, avg);
+                            post({ type: 'calibrated', baseline: state.baseline });
+                        }
+                        label.textContent = '🟢 Armed';
+                        return;
+                    }
+                    try {
+                        ctx.drawImage(v, 0, 0, 160, 120);
+                        var img = ctx.getImageData(0, 0, 160, 72);
+                        if (prev) {
+                            var d = img.data, total = 0;
+                            for (var i = 0; i < d.length; i += 16) {
+                                total += Math.abs(d[i] - prev[i]) + Math.abs(d[i + 1] - prev[i + 1]) + Math.abs(d[i + 2] - prev[i + 2]);
+                            }
+                            samples.push(total / (d.length / 16));
+                        }
+                        prev = new Uint8ClampedArray(img.data);
+                    } catch (e) { }
+                    setTimeout(step, 100);
+                })();
+            }
+
+            function loop() {
+                if (!state.running) return;
+                try {
+                    ctx.drawImage(v, 0, 0, 160, 120);
+                    var img = ctx.getImageData(0, 0, 160, 72); // top 60%
+                    if (state.prev) {
+                        var d = img.data, p = state.prev;
+                        var motionPx = 0, samples = 0;
+                        var PIXEL_NOISE = 22;
+                        for (var i = 0; i < d.length; i += 16) {
+                            var dLuma = Math.abs(
+                                (d[i] * 0.3 + d[i + 1] * 0.59 + d[i + 2] * 0.11) -
+                                (p[i] * 0.3 + p[i + 1] * 0.59 + p[i + 2] * 0.11)
+                            );
+                            if (dLuma > PIXEL_NOISE) motionPx++;
+                            samples++;
+                        }
+                        var motionPct = samples ? motionPx / samples : 0;
+                        var triggerPct = Math.max(0.03, state.sensitivity * 0.015);
+                        var barPct = Math.min(100, (motionPct / triggerPct) * 100);
+                        bar.style.width = barPct + '%';
+                        bar.style.background = barPct > 80 ? '#f00' : barPct > 50 ? '#ff0' : '#0f0';
+                        if (motionPct > triggerPct) {
+                            state.motionStreak = (state.motionStreak || 0) + 1;
+                        } else {
+                            state.motionStreak = 0;
+                        }
+                        if (state.motionStreak >= 3 && Date.now() > state.cooldownUntil) {
+                            state.cooldownUntil = Date.now() + 10000;
+                            state.motionStreak = 0;
+                            post({ type: 'motion', level: Math.round(motionPct * 1000) });
+                        }
+                    }
+                    state.prev = new Uint8ClampedArray(img.data);
+                } catch (e) { }
+                requestAnimationFrame(loop);
+            }
+
+            window.addEventListener('message', function (e) {
+                var m = e.data || {};
+                if (m.cmd === 'start') start();
+                else if (m.cmd === 'stop') stop();
+                else if (m.cmd === 'calibrate') calibrate();
+                else if (m.cmd === 'sensitivity' && typeof m.value === 'number') state.sensitivity = m.value;
+            });
+
+            // Auto-stop on hide (saves battery, kills LED)
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden && state.running) stop();
+            });
+
+            post({ type: 'ready' });
+        })();
+    </script>
+</body>
+
+</html>
